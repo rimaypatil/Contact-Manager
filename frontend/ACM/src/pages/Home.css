@@ -1,0 +1,115 @@
+
+ 
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to right,#8360c3, #2ebf91);
+  font-family: Arial, sans-serif;
+}
+
+.home-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.home-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 250px;
+  font-size: 1rem;
+}
+
+.create-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.all-contacts {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.contact-list-container {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contact-item:hover {
+  background-color: #eef2f5;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.contact-phone {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.no-results {
+  text-align: center;
+  color: #999;
+  padding: 1rem;
+}
+
