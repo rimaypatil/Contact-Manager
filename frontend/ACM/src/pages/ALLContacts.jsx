@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import "./ALLContacts.css";
+import './AllContacts.css';
 
 function AllContacts() {
   const [contacts, setContacts] = useState([]);
