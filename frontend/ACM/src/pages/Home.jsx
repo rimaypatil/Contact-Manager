@@ -86,7 +86,7 @@ function Home() {
   return (
     <div className="home-container">
       <div className="home-header">
-       <h1 style={{ color: 'black' }}>Contact Manager</h1>
+       <h1 style={{ color: 'white' }}>Contact Manager</h1>
         <div className="home-actions">
           <input
             type="text"
