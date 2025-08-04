@@ -24,7 +24,7 @@ function ContactDetails() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/contacts/${id}`, { name, phone });
+      await axios.put(`${id}`, { name, phone });
       alert('Contact updated successfully!');
       setEditMode(false);
       navigate('/contacts');
@@ -37,7 +37,7 @@ function ContactDetails() {
     const confirmDelete = window.confirm('Are you sure you want to delete this contact?');
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/api/contacts/${id}`);
+        await axios.delete(`https://contact-manager-etim.onrender.com/api/contacts${id}`);
         alert('Contact deleted successfully');
         navigate('/contacts');
       } catch (err) {

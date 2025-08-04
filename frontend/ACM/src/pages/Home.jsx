@@ -73,7 +73,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://contact-manager-etim.onrender.com/api/contacts/api/contacts')
+    axios.get('https://contact-manager-etim.onrender.com/api/contacts')
       .then(res => setContacts(res.data))
       .catch(err => console.error(err));
   }, []);
