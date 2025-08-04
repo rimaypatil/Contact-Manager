@@ -13,7 +13,7 @@ function ContactDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`https://contact-manager-etim.onrender.com/api/contacts${id}`)
+    axios.get(`https://contact-manager-etim.onrender.com/api/contacts/${id}`)
       .then(res => {
         setContact(res.data);
         setName(res.data.name);
@@ -37,7 +37,7 @@ function ContactDetails() {
     const confirmDelete = window.confirm('Are you sure you want to delete this contact?');
     if (confirmDelete) {
       try {
-        await axios.delete(`https://contact-manager-etim.onrender.com/api/contacts${id}`);
+        await axios.delete(`https://contact-manager-etim.onrender.com/api/contacts/${id}`);
         alert('Contact deleted successfully');
         navigate('/contacts');
       } catch (err) {
