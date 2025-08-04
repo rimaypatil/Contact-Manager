@@ -8,7 +8,7 @@ function AllContacts() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/contacts')
+    axios.get('https://contact-manager-etim.onrender.com/api/contacts')
       .then(res => setContacts(res.data))
       .catch(err => console.error(err));
   }, []);

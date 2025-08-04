@@ -73,7 +73,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/contacts')
+    axios.get('https://contact-manager-etim.onrender.com/api/contacts/api/contacts')
       .then(res => setContacts(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -86,7 +86,7 @@ function Home() {
   return (
     <div className="home-container">
       <div className="home-header">
-        <h1>Contact Manager</h1>
+       <h1 style={{ color: 'black' }}>Contact Manager</h1>
         <div className="home-actions">
           <input
             type="text"

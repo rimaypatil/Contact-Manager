@@ -13,7 +13,7 @@ function ContactDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/contacts/${id}`)
+    axios.get(`https://contact-manager-etim.onrender.com/api/contacts${id}`)
       .then(res => {
         setContact(res.data);
         setName(res.data.name);
