@@ -24,7 +24,7 @@ function ContactDetails() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`${id}`, { name, phone });
+      await axios.put(`https://contact-manager-etim.onrender.com/api/contacts/${id}`, { name, phone });
       alert('Contact updated successfully!');
       setEditMode(false);
       navigate('/contacts');
