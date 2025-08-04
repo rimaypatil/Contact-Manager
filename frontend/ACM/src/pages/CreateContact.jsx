@@ -23,7 +23,7 @@ const CreateContact = () => {
     }
     try {
       const newContact = { name, phone };
-      await axios.post('http://localhost:5000/api/contacts', newContact);
+      await axios.post('https://contact-manager-etim.onrender.com', newContact);
       alert('Contact created successfully');
       setName('');
       setPhone('');
