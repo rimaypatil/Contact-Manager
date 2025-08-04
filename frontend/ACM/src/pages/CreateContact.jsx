@@ -9,11 +9,18 @@ const CreateContact = () => {
   const handlePhoneChange = (e) => {
     const input = e.target.value;
     const onlyDigits = input.replace(/\D/g, '');
-    setPhone(onlyDigits);
+    // Limit phone number to 10 digits
+    if (onlyDigits.length <= 10) {
+      setPhone(onlyDigits);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (phone.length !== 10) {
+      alert('Phone number must be exactly 10 digits');
+      return;
+    }
     try {
       const newContact = { name, phone };
       await axios.post('http://localhost:5000/api/contacts', newContact);
