@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     
     const { name, phone , tags} = req.body;
     console.log('Received:', req.body);
-    console.log(typeOf(req.body.tags))// Debug log
+    console.log(typeof(req.body.tags))// Debug log
     const contact = new Contact({ name, phone, tags});
     await contact.save();
     res.status(201).json(contact);
