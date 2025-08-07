@@ -9,7 +9,13 @@ function AllContacts() {
 
   useEffect(() => {
     axios.get('https://contact-manager-etim.onrender.com/api/contacts')
-      .then(res => setContacts(res.data))
+      .then(res => {
+        // Sort contacts alphabetically by name (case-insensitive)
+        const sortedContacts = [...res.data].sort((a, b) =>
+          a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+        );
+        setContacts(sortedContacts);
+      })
       .catch(err => console.error(err));
   }, []);
 
@@ -32,8 +38,3 @@ function AllContacts() {
 }
 
 export default AllContacts;
-
-
-
-
-

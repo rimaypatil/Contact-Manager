@@ -1,3 +1,4 @@
+// routes/contactRoutes.js
 const express = require('express');
 const router = express.Router();
 const Contact = require('../models/Contact');
@@ -5,19 +6,29 @@ const Contact = require('../models/Contact');
 // Create Contact
 router.post('/', async (req, res) => {
   try {
-    const { name, phone } = req.body;
-    const contact = new Contact({ name, phone });
+    
+    const { name, phone , tags} = req.body;
+    console.log('Received:', req.body);
+    console.log(typeOf(req.body.tags))// Debug log
+    const contact = new Contact({ name, phone, tags});
     await contact.save();
     res.status(201).json(contact);
   } catch (err) {
+    console.error('Error creating contact:', err);
     res.status(400).json({ error: err.message });
   }
 });
 
-// Get All Contacts
+// Get All Contacts with Optional Tag Filter and Alphabetical Sorting
 router.get('/', async (req, res) => {
-  const contacts = await Contact.find();
-  res.json(contacts);
+  try {
+    const { tag } = req.query;
+    const filter = tag ? { tags: tag } : {};
+    const contacts = await Contact.find(filter).sort({ name: 1 });
+    res.json(contacts);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
 });
 
 // Search Contact (by name or phone)
@@ -26,8 +37,8 @@ router.get('/search', async (req, res) => {
   const contacts = await Contact.find({
     $or: [
       { name: new RegExp(query, 'i') },
-      { phone: new RegExp(query, 'i') },
-    ],
+      { phone: new RegExp(query, 'i') }
+    ]
   });
   res.json(contacts);
 });

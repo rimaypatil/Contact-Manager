@@ -77,3 +77,23 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #0056b3;
 }
+
+
+.tag-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-options label {
+  background-color: #444;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.tag-options input {
+  margin-right: 5px;
+}
