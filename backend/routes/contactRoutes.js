@@ -1,15 +1,16 @@
-// routes/contactRoutes.js
+
 const express = require('express');
 const router = express.Router();
 const Contact = require('../models/Contact');
 
-// Create Contact
 router.post('/', async (req, res) => {
   try {
     
     const { name, phone , tags} = req.body;
     console.log('Received:', req.body);
-    console.log(typeof(req.body.tags))// Debug log
+
+    console.log(typeof(req.body.tags));
+    
     const contact = new Contact({ name, phone, tags});
     await contact.save();
     res.status(201).json(contact);
@@ -19,7 +20,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Get All Contacts with Optional Tag Filter and Alphabetical Sorting
+
 router.get('/', async (req, res) => {
   try {
     const { tag } = req.query;
@@ -31,7 +32,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Search Contact (by name or phone)
+
 router.get('/search', async (req, res) => {
   const { query } = req.query;
   const contacts = await Contact.find({
@@ -43,19 +44,29 @@ router.get('/search', async (req, res) => {
   res.json(contacts);
 });
 
-// Get One Contact
 router.get('/:id', async (req, res) => {
   const contact = await Contact.findById(req.params.id);
   res.json(contact);
 });
 
-// Update Contact
+
+
 router.put('/:id', async (req, res) => {
-  const updated = await Contact.findByIdAndUpdate(req.params.id, req.body, { new: true });
-  res.json(updated);
+  const { name, phone, tags } = req.body;
+  try {
+    const updated = await Contact.findByIdAndUpdate(
+      req.params.id,
+      { name, phone, tags },  
+      { new: true }
+    );
+    res.json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
-// Delete Contact
+
+
 router.delete('/:id', async (req, res) => {
   await Contact.findByIdAndDelete(req.params.id);
   res.json({ message: 'Contact deleted' });

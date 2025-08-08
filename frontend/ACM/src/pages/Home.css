@@ -1,151 +1,153 @@
 
- 
 body {
   margin: 0;
-  height: 100vh;
-  background: linear-gradient(to right,#8360c3, #2ebf91);
-  font-family: Arial, sans-serif;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #2dd4bf, #3b82f6);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .home-container {
-  max-width: 800px;
-  margin: 0 auto;
   padding: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.home-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.home-actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.search-input {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  width: 250px;
-  font-size: 1rem;
-}
-
-.create-button {
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.all-contacts {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #333;
-}
-
-.contact-list-container {
-  background-color: #f9f9f9;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  padding: 0.75rem;
-  border-bottom: 1px solid #e0e0e0;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.contact-item:hover {
-  background-color: #eef2f5;
-}
-
-.avatar {
-  width: 45px;
-  height: 45px;
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.contact-phone {
-  color: #777;
-  font-size: 0.9rem;
-}
-
-.no-results {
+  max-width: 1000px;
+  margin: auto;
   text-align: center;
-  color: #999;
-  padding: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #000;
 }
 
 .top-bar {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.top-bar input, .top-bar select {
-  padding: 8px;
-  border-radius: 5px;
-  border: none;
-  width: 200px;
-}
-
-.contact-item {
-  padding: 15px;
-  background: #333;
-  color: white;
+.top-bar input,
+.top-bar select,
+.top-bar button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
   border-radius: 8px;
-  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
+.top-bar button {
+  background-color: #2563eb;
+  color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.top-bar button:hover {
+  background-color: #1d4ed8;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.contact-card {
+  background-color: #1f2937;
+  color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  flex-wrap: wrap;
+  word-break: break-word;
+}
+
+.contact-card:hover {
+  transform: scale(1.02);
+}
+
+.avatar {
+  background-color: #3b82f6;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-info {
+  text-align: left;
+  flex: 1;
+  min-width: 200px;
+}
+
+.contact-info h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.2rem;
+}
+
+.contact-info p {
+  margin: 0 0 0.5rem;
 }
 
 .tags {
-  margin-top: 5px;
   display: flex;
-  gap: 5px;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 .tag {
-  background: #666;
-  padding: 2px 6px;
-  border-radius: 5px;
-  font-size: 0.75rem;
+  background-color: #10b981;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
 }
 
+.no-results {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
 
+@media screen and (max-width: 768px) {
+  .home-container {
+    padding: 1rem;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .top-bar input,
+  .top-bar select,
+  .top-bar button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-info {
+    width: 100%;
+  }
+}

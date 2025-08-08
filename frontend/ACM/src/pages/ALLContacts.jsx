@@ -10,7 +10,7 @@ function AllContacts() {
   useEffect(() => {
     axios.get('https://contact-manager-etim.onrender.com/api/contacts')
       .then(res => {
-        // Sort contacts alphabetically by name (case-insensitive)
+       
         const sortedContacts = [...res.data].sort((a, b) =>
           a.name.toLowerCase().localeCompare(b.name.toLowerCase())
         );
